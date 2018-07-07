@@ -1,6 +1,7 @@
 // require the path module
 const path = require('path');
 const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const baseConfig = {
     entry: './src/MinMaxSlider.ts',
@@ -11,7 +12,7 @@ const baseConfig = {
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: [".ts", ".tsx", ".js"]
+        extensions: [".ts", ".tsx", ".js", "scss"]
     },
     module: {
         rules: [
@@ -23,12 +24,15 @@ const baseConfig = {
             {
                 test: /\.scss$/,
                 use: [
-                    "style-loader", // creates style nodes from JS strings
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {}
+                    },
                     "css-loader", // translates CSS into 
                     {
                         loader: "sass-loader",
                         options: {
-                            includePaths: [path.resolve(__dirname, 'scss/MinMaxSlider.scss')]
+                            includePaths: [path.resolve(__dirname, 'scss/**/*.scss')]
                         }
                     }
                 ]
@@ -43,7 +47,12 @@ const baseConfig = {
 
     mode: 'production',
     plugins: [
-
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ]
 };
 

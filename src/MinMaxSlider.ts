@@ -1,4 +1,8 @@
 
+
+import '../scss/MinMaxSlider.scss';
+
+
 export interface IMinMaxSliderParams {
     min: number;
     max: number;
