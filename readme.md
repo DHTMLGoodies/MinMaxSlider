@@ -54,3 +54,19 @@ In webpack.config.js
 
 First the sass-loader, then the css-loader, and finally the MinCssExtractPlugin loader.
 
+## Clean directory before Webpack build
+
+```
+npm install clean-webpack-plugin --save-dev
+```
+
+Usage in webpack.config.js
+
+```
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+...
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        ...
+```
+

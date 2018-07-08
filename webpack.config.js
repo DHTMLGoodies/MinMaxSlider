@@ -2,6 +2,7 @@
 const path = require('path');
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const baseConfig = {
     entry: './src/MinMaxSlider.ts',
@@ -40,17 +41,18 @@ const baseConfig = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'app/dist'),
-        filename: 'app.bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'MinMaxSlider.js',
         publicPath: '/dist/',
     },
 
     mode: 'production',
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: "[name].css",
+            filename: "MinMaxSlider.css",
             chunkFilename: "[id].css"
         })
     ]

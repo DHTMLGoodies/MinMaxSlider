@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --env development"
+    "build": "webpack --env development",
+    "declaration": "npx typescript --declarationDir ./declaration -d ./src/MinMaxSlider.ts"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.0",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.1",
