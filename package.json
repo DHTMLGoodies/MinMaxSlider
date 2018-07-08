@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/jquery": "^3.3.4",
     "awesome-typescript-loader": "^5.2.0",
     "chai": "^4.1.2",
     "clean-webpack-plugin": "^0.1.19",
@@ -39,6 +40,7 @@
   "dependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.4",
-    "@types/sinon": "^5.0.1"
+    "@types/sinon": "^5.0.1",
+    "jquery": "^3.3.1"
   }
 }

@@ -1,4 +1,4 @@
-var webpackConfig = require("./webpack.config");
+var webpackConfig = require("./webpack-tests.config");
 
 module.exports = function (config) {
     config.set({
@@ -92,10 +92,7 @@ module.exports = function (config) {
          * If you have a different webpack.config.js file that's used for testing
          * purposes, you can specify that here.
          */
-        webpack: {
-            module: webpackConfig.module,
-            resolve: webpackConfig.resolve
-        },
+        webpack: webpackConfig,
 
     });
 };

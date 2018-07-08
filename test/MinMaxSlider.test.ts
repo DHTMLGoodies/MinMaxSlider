@@ -1,3 +1,5 @@
+import { MinMaxSlider } from "../src/MinMaxSlider";
+
 
 describe("MinMaxSlider", () => {
 
@@ -5,16 +7,28 @@ describe("MinMaxSlider", () => {
 
     });
 
-    it("Should set constructor config", () => {
+    it("Should set default value", () => {
 
-        chai.assert.strictEqual("alf", "alf");
-    
+        let slider = new MinMaxSlider({
+            min: 0, max: 200, orientation: 'horizontal'
+        });
+
+        chai.assert.exists(slider.value);
+
+        chai.assert.equal(slider.value.from, 0);
+        chai.assert.equal(slider.value.to, 200);
     });
 
-    it("Should work", () => {
+    it("Should use value passed to constructor", () => {
+        let slider = new MinMaxSlider({
+            min: 0, max: 200, orientation: 'horizontal',
+            value: {
+                from: 10, to: 190
+            }
+        });
 
-        chai.assert.strictEqual("magne", "magne");
-    
+        chai.assert.equal(slider.value.from, 10);
+        chai.assert.equal(slider.value.to, 190);
+
     });
-
 });
