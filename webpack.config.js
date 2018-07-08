@@ -40,6 +40,9 @@ const baseConfig = {
             }
         ]
     },
+    node: {
+        fs: 'empty'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'MinMaxSlider.js',
