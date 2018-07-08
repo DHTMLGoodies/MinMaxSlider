@@ -9,7 +9,7 @@ const baseConfig = {
     devtool: 'inline-source-map',
     optimization: {
         // We no not want to minimize our code.
-        minimize: false
+        minimize: true
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
@@ -48,7 +48,9 @@ const baseConfig = {
         filename: 'MinMaxSlider.js',
         publicPath: '/dist/',
     },
-
+    externals: {
+        jquery: 'jQuery'
+    },
     mode: 'production',
     plugins: [
         new CleanWebpackPlugin(['dist']),

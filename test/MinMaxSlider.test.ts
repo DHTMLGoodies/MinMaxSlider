@@ -1,5 +1,5 @@
 import { MinMaxSlider } from "../src/MinMaxSlider";
-
+import { assert } from "chai";
 
 describe("MinMaxSlider", () => {
 
@@ -30,5 +30,18 @@ describe("MinMaxSlider", () => {
         chai.assert.equal(slider.value.from, 10);
         chai.assert.equal(slider.value.to, 190);
 
+    });
+
+    it("Should create dom", () => {
+        let slider = new MinMaxSlider({
+            min: 0, max: 200, orientation: 'horizontal',
+            value: {
+                from: 10, to: 190
+            }
+        });
+
+        // then
+        assert.exists(slider.$);
+        assert.equal(slider.$[0].tagName.toLowerCase(), "div");
     });
 });

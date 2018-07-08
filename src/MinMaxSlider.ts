@@ -19,7 +19,7 @@ export class MinMaxSlider {
     private params: IMinMaxSliderParams;
     private _value: IMinMaxSliderValue;
 
-    private $: JQuery<HTMLElement>;
+    private _$: JQuery<HTMLElement>;
 
     constructor(params: IMinMaxSliderParams) {
         this.params = params;
@@ -28,10 +28,19 @@ export class MinMaxSlider {
             from: params.min, to: params.max
         };
 
-        this.$ = $('<div>');
+        this.createDom();
+    }
+
+    private createDom() {
+        this._$ = $('<div>');
+
     }
 
     get value(): IMinMaxSliderValue {
         return this._value;
+    }
+
+    get $() {
+        return this._$;
     }
 }

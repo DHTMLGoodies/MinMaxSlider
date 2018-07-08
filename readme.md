@@ -216,3 +216,13 @@ module.exports = function (config) {
 };
 ```
 
+
+## Exclude jquery from build
+
+webpack.config.js:
+
+```
+externals: {
+    jquery: 'jQuery'
+},
+```
